@@ -9,6 +9,8 @@ RUN apt-get update
 RUN apt-get -y install redis-server
 RUN pip3 install redis
 
+RUN sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf
+
 ADD run.sh /tmp/run.sh
 RUN chmod u+x /tmp/run.sh
 
